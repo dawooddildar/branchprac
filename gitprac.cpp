@@ -1,27 +1,44 @@
 #include <iostream>
+#include <cmath>
+#include <iomanip>
 using namespace std;
 
-void printDivider();
+double calculateDistance(double x1, double y1, double x2, double y2);
+void printTravelAdvice(double distance);
 
 
 int main(){
 
-    printDivider();
-    cout << "CS110 FUNCTION PRACTICE" <<endl;
-    printDivider();
-    cout << "Prototype -> Call -> Definition" <<endl;
-    printDivider();
+    double x1, y1, x2, y2 ;
 
+    cout << "Enter x1, y1, x2, y2" << endl;
+    cin >> x1 >> y1 >> x2 >> y2 ;
+
+    cout << fixed << setprecision(2);
+    cout << "Distance is: " << calculateDistance(x1, y1, x2, y2) << endl;
+
+    double distance ;
+    distance = calculateDistance(x1, y1, x2, y2);
+    printTravelAdvice(distance);
 
     return 0;
 }
 
-void printDivider(){
-    int i = 1;
-    while(i<=30){
-        cout << "_";
-        i ++ ;
+double calculateDistance(double x1, double y1, double x2, double y2){
+    return sqrt(pow (x2 - x1, 2) + pow (y2 - y1, 2));}
 
+void printTravelAdvice(double distance){
+    if ( distance <= 1.0){
+        cout << "Walk " <<endl;
     }
-    cout << endl;
+    else if (distance <= 5.0){
+        cout << "Use Shuttle" <<endl;
+    }
+    else{
+        cout << "Use other Transport" <<endl;
+    }
 }
+        
+
+
+
