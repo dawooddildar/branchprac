@@ -1,44 +1,56 @@
 #include <iostream>
-#include <cmath>
-#include <iomanip>
 using namespace std;
 
-double calculateDistance(double x1, double y1, double x2, double y2);
-void printTravelAdvice(double distance);
+int countDigits(int pin);
+int digitSum(int pin);
+// bool isStrongPin(int pin);
 
+int main() {
+    int pin;
 
-int main(){
+    cout << "Enter PIN: ";
+    cin >> pin;
 
-    double x1, y1, x2, y2 ;
+    cout << "Digit count: " << countDigits(pin) << endl;
+    cout << "Digit sum: " << digitSum(pin) << endl;
 
-    cout << "Enter x1, y1, x2, y2" << endl;
-    cin >> x1 >> y1 >> x2 >> y2 ;
-
-    cout << fixed << setprecision(2);
-    cout << "Distance is: " << calculateDistance(x1, y1, x2, y2) << endl;
-
-    double distance ;
-    distance = calculateDistance(x1, y1, x2, y2);
-    printTravelAdvice(distance);
+    // if (isStrongPin(pin)) {
+    //     cout << "Strong PIN" << endl;
+    // }
+    // else {
+    //     cout << "Weak PIN" << endl;
+    // }
 
     return 0;
 }
 
-double calculateDistance(double x1, double y1, double x2, double y2){
-    return sqrt(pow (x2 - x1, 2) + pow (y2 - y1, 2));}
+int countDigits(int pin) {
+    int count = 0;
 
-void printTravelAdvice(double distance){
-    if ( distance <= 1.0){
-        cout << "Walk " <<endl;
+    for (int i = 1; pin > 0; i++) {
+        pin = (pin / 10);
+        count ++ ;
     }
-    else if (distance <= 5.0){
-        cout << "Use Shuttle" <<endl;
-    }
-    else{
-        cout << "Use other Transport" <<endl;
-    }
+
+    return count;
 }
-        
 
+int digitSum(int pin) {
+    int sum = 0;
 
+    while (pin > 0) {
+        pin = pin % 10;
+        sum += pin ;
+        pin /= 10;
+    }
 
+    return sum;
+// }
+
+// bool isStrongPin(int pin) {
+//     int digits = countDigits(pin);
+//     int sum = digitSum(pin);
+//     int lastDigit = pin % 10;
+
+//     return (digits == 4 && sum >= 20 && lastDigit % 2 != 0);
+// }
