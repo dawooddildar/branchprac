@@ -1,16 +1,18 @@
 #include <iostream>
-#include <cmath>
-using namespace std;
 
-
+bool isEven(int number);
 
 int main() {
+    int value = 46;
 
-    double ans;
-    ans = sqrt(25) ;
-    cout << ans ;
-   
+    if (isEven(value) != true )
+        std::cout << "Even";
+    else
+        std::cout << "Odd";
+
     return 0;
 }
 
-
+bool isEven(int number) {
+    return number % 2 == 0;
+}

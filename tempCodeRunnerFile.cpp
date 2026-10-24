@@ -1,18 +1,20 @@
+#include <iostream>
+#include <cmath>
+#include <string>
+using namespace std;
 
-//     int sum = 0;
+void printStudentCard( string name, int semester) ;
 
-//     while (pin > 0) {
-//         sum += pin % 10;
-//         pin /= 10;
-//     }
+int main() {
 
-//     return sum;
-// }
+    
 
-// bool isStrongPin(int pin) {
-//     int digits = countDigits(pin);
-//     int sum = digitSum(pin);
-//     int lastDigit = pin % 10;
+    printStudentCard( "name", 7) ;
 
-//     return (digits == 4 && sum >= 20 && lastDigit % 2 != 0);
-// }
+   
+    return 0;
+}
+
+void printStudentCard( string name, int semester) {
+    cout << "Name is: "<< name << endl << "Semester is: " << semester << endl ;
+}
